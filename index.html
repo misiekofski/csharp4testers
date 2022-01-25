@@ -1,63 +1,124 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/serif.css">
+	<title>reveal.js</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Wprowadzenie do C# dla testerów automatyzujących
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/serif.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>Wprowadzenie do C# dla testerów automatyzujących
 				Autor: Michał Dobrzycki
-				</section>
-				
+			</section>
+
+			<section>
+				<section>Wprowadzenia do Visual Studio</section>
 				<section>
-					<section>Wprowadzenia do Visual Studio</section>						
-					<section>Instalacja środowiska</section>
-					
+					<p>Potrzebujemy:</p>
+					<ul>
+						<li><a href="https://visualstudio.microsoft.com/pl/">Visual Studio</a></li>
+						<li><a href="https://dotnet.microsoft.com/en-us/download/dotnet/3.1">.NET 3.1</a></li>
+						<li><a href="https://docs.specflow.org/projects/getting-started/en/latest/GettingStarted/Step1.html">SpecFlow</a></li>
+					</ul>
 				</section>
-					
+			</section>
+
+			<section>
+				<section>Czym jest nuget</section>
 				<section>
-					<section>Wprowadzenie do C#</section>
-					<section>
-						<p>Język C# a JavaScript</p>
-						<pre>
+					<p>Manager paczek (coś jak npm albo yarn)</p>
+					<ul>
+						<li><a href="https://www.nuget.org/ ">Nuget</a></li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section>Czym jest .NET?</section>
+				<section>
+					<p>Platforma stworzona przez Microsoft dla developerów, do tworzenia wielu rodzajów aplikacji, takich jak:</p>
+					<ul>
+						<li>Serwisy i mikroserwisy (REST API, GraphQL)</li>
+						<li>Aplikacje mobilne</li>
+						<li>Aplikacje desktopowe</li>
+						<li>Gry</li>
+						<li>Cloud Native apps</li>
+						<li>ML & AI apps</li>
+					</ul>
+				</section>
+				<section>
+					<p>Aplikacje .NET można tworzyć dla wielu systemów operacyjnych, na przykład:</p>
+					<ul>
+						<li>Windows</li>
+						<li>macOS</li>
+						<li>Linux</li>
+						<li>Android</li>
+						<li>iOS</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section>Wprowadzenie do C#</section>
+				<section>
+					<h3>.NET potrafi kompilować język C#</h3>
+					<p>Język C# jest:</p>
+					<ul>
+						<li>Statycznie typowany</li>
+						<li>Twardo typowany</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Język C# vs JavaScript</h3>
+					<p>C#</p>
+					<pre>
 							<code data-trim data-noescape>
 							public static void Main(string[] args) {
 								Console.Writeline("Hello world!");
 							}
 							</code>
 						</pre>
-					</section>
+					<p>JavaScript</p>
+					<pre>
+							<code data-trim data-noescape>
+							console.log("Hello world!");
+							</code>
+						</pre>
 				</section>
-				
-				
-			</div>
+
+
+			</section>
+
+
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
 </html>
