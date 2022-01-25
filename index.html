@@ -39,7 +39,7 @@
 				<section>
 					<p>Manager paczek (coś jak npm albo yarn)</p>
 					<ul>
-						<li><a href="https://www.nuget.org/ ">Nuget</a></li>
+						<li><a href="https://www.nuget.org/">Nuget</a></li>
 					</ul>
 				</section>
 			</section>
@@ -96,8 +96,79 @@
 							</code>
 						</pre>
 				</section>
+				<section>
+					<h3>Porównanie</h3>
+					<table>
+						<thead>
+							<tr>
+								<th>Cecha</th>
+								<th>C#</th>
+								<th>JavaScript</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Obiektowy</td>
+								<td>TAK</td>
+								<td>TAK(?)</td>
+							</tr>
+							<tr>
+								<td>Funkcyjny</td>
+								<td>TAK(?)</td>
+								<td>TAK</td>
+							</tr>							
+							<tr>
+								<td>Kompilowany</td>
+								<td>TAK</td>
+								<td>NIE</td>
+							</tr>
+							<tr>
+								<td>Wielowątkowy</td>
+								<td>TAK</td>
+								<td>NIE</td>
+							</tr>
+							<tr>
+								<td>Działa w przeglądarce</td>
+								<td>NIE</td>
+								<td>TAK</td>
+							</tr>
+							<tr>
+								<td>Garbage Collector</td>
+								<td>TAK</td>
+								<td>NIE</td>
+							</tr>							
+						</tbody>
+					</table>
+					
+				</section>
+				<section>
+					<h3>To który z nich jest lepszy do automatyzacji?</h3>
+					<p class="fragment">Jakby odpowiedział konsultant</p>
+					<p class="fragment">To zależy...</p>
+				</section>
 
 
+			</section>
+
+			<section>
+				<section>
+					<p>Jak definiujemy zmienne w C#?</p>
+					<p>Musimy podać im typ oraz nazwę zmiennej, przypisać wartość i zakończyć średnikiem</p>
+					<pre><code data-line-numbers="2,3">public class Movies() {
+	int  movieNumber = 65;
+	string merchandise = "Avengers";
+}
+					</code></pre>
+				</section>
+				<section>
+					<p>Magiczne słówko <strong>var</strong>, powoduje że C# sam wymyśli jaki to ma być typ.</p>
+					<p>Zapis poniżej jest równoznaczny z poprzednim</p>
+					<pre><code data-line-numbers="2,3">public class Movies() {
+	var movieNumber = 65;
+	var merchandise = "Avengers";
+}
+					</code></pre>
+				</section>
 			</section>
 
 
