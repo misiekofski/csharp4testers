@@ -196,7 +196,7 @@
 				<section>
 					<p>Stringi w C# są niezmienialnymi (immutable) obiektami</p>
 					<p>Możemy je deklarować na kilka sposobów:</p>
-					<pre><code data-line-numbers="2-6">public class Movies() {
+					<pre><code data-line-numbers="2-6">public class Example() {
 	string text1; // bez inicjalizacji
 	string text2 = null; // inicjalizacja nullem
 	string text3 = System.String.Empty; // pusty string jest równoznaczny z string text3 = ""
@@ -209,7 +209,8 @@
 				<section>
 					<p>Interpolacja ciągów (string interpolation)</p>
 					<p>Możemy wstawiać zmienne do środka stringów:</p>
-					<pre><code data-line-numbers="2-6">public class Movies() {
+					<pre><code data-line-numbers="2-6">public static void Main(string[] args) 
+{
 	string name = "Michał";
 	string surname = "Dobrzycki";
 	double stanKredytu = -300000.43;
@@ -220,11 +221,12 @@
 
 				<section>
 					<p>Na Stringach można pracować jak z tablicami znaków</p>
-					<pre><code data-line-numbers="2-6">public static string Reverse( string s )
+					<pre><code data-line-numbers="2-6">public static void Main(string[] args)
 {
+	string s = "A kobyla ma maly bok";
 	char[] charArray = s.ToCharArray();
-	Array.Reverse( charArray );
-	return new string( charArray );
+	// możemy robić funkcje 
+	string reversed = new string( charArray );
 }
 					</code></pre>
 				</section>
@@ -237,9 +239,8 @@
 				<section>
 					<p>Instrukcje warunkowe</p>
 					<p>Instrukcja if:</p>
-					<pre><code data-line-numbers="3-6">public class Movies() 
+					<pre><code data-line-numbers="3-6">public static void Main(string[] args) 
 {
-	public static void Main(string[] args) {
 		if (warunek1) {
 			// jeżeli warunek1 jest TRUE to wykonaj kod
 		} else if (warunek2) {
@@ -247,7 +248,6 @@
 		} else {
 			// jeżeli wszystkie warunki powyżej są FALSE to wykonaje ten kod
 		}
-	}
 }
 					</code></pre>
 				</section>
@@ -255,32 +255,45 @@
 				<section>
 					<p>Instrukcje warunkowe</p>
 					<p>Instrukcja switch (zamiennie do if):</p>
-					<pre><code data-line-numbers="3-6">public class User() 
+					<pre><code data-line-numbers="3-6">public static void Main(string[] args) 
 {
-	public static void Main(string[] args) {
-		// załóżmy że użytkownik podaje zmienną typu int age z klawiatury
-		switch (age) {
-			case < 0:
-				Console.WriteLine("Nie można mieć mniej niż 0 lat");
-				break;
-			case > 150:
-				Console.WriteLine("Nie można mieć mniej więcej niż 150 lat");
-				break;
-			case 42:
-				Console.WriteLine("Douglas Adams bardzo lubi ten wiek!");
-				break;
-			default:
-				Console.WriteLine($"Masz {age} lat!");
-				break;
-		}
+	// załóżmy że użytkownik podaje zmienną typu int age z klawiatury
+	switch (age) {
+		case < 0:
+			Console.WriteLine("Nie można mieć mniej niż 0 lat");
+			break;
+		case > 150:
+			Console.WriteLine("Nie można mieć mniej więcej niż 150 lat");
+			break;
+		case 42:
+			Console.WriteLine("Douglas Adams bardzo lubi ten wiek!");
+			break;
+		default:
+			Console.WriteLine($"Masz {age} lat!");
+			break;
 }
+
 					</code></pre>
 				</section>
 
 				<section>
-					<p>Interpolacja ciągów (string interpolation)</p>
-					<p>Możemy wstawiać zmienne do środka stringów:</p>
-					<pre><code data-line-numbers="2-6">
+					<h2>Metody</h2>
+					
+					<p>W C# punktem wejściowym do programu jest funkcja public static void Main()</p>
+					<p>Metody to funkcje (bloki kodu zawierające instrukcje), które przyjmują dane na wejściu i wyrzucają na wyjściu</p>
+					<p>Metody muszą coś zwracać, a jeżeli nie zwracają używamy słowa void (zwracamy pustkę)</p>
+				</section>
+
+
+				<section>
+					<h2>Metody i zwracanie wartości</h2>
+					
+					<p>W C# każda instrukcja jest wykonywana w kontekście metody.</p>
+					<p>Metody definiujemy za pomocą schematu [atrybut dostępu] [static] typ_zwracany NazwaMetody(int parametr1, ...)</p>
+					<p>Elementy w nawiasach kwadratowych są opcjonalne, opowiemy o nich później.</p>
+					<pre><code data-line-numbers="2-6">public static double CalculateGross(int netto, double vat) { return netto + (netto * vat) };
+string GetFullName(string name, string surname) { return $"{name} {surname}"};
+void SendSMS(string email, string message) { /* kod wysyłający email */ };
 					</code></pre>
 				</section>
 			
