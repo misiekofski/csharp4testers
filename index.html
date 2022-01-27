@@ -163,13 +163,14 @@
 			<section>
 
 				<section>
-					<h2>Wszystkie zadania będziemy wykonywać na tym <a href="https://github.com/misiekofski/CsharpForTesters">repozytorium</a></h2>
-					<p>Zróbcie forka i klona na swoje maszyny, żeby móc wypychać swoje zmiany na githuba.</p>					
+					<h2>Wszystkie zadania z C# będziemy wykonywać w jednym projekcie</h2>
+					<p>Zróbcie forka i klona na swoje maszyny z tego <a href="https://github.com/misiekofski/CsharpForTesters">repozytorium</a>, żeby móc wypychać swoje zmiany na githuba.</p>					
 				</section>
 				<section>
 					<p>Jak definiujemy zmienne w C#?</p>
 					<p>Musimy podać im typ oraz nazwę zmiennej, przypisać wartość i zakończyć średnikiem</p>
-					<pre><code data-line-numbers="2,3">public class Movies() {
+					<pre><code data-line-numbers="2,3">public class Movies() 
+{
 	int  movieNumber = 65;
 	string merchandise = "Avengers";
 }
@@ -178,7 +179,8 @@
 				<section>
 					<p>Magiczne słówko <strong>var</strong>, powoduje że C# sam wymyśli jaki to ma być typ.</p>
 					<p>Zapis poniżej jest równoznaczny z poprzednim</p>
-					<pre><code data-line-numbers="2,3">public class Movies() {
+					<pre><code data-line-numbers="2,3">public class Movies() 
+{
 	var movieNumber = 65;
 	var merchandise = "Avengers";
 }
@@ -186,7 +188,8 @@
 				</section>
 
 				<section>
-					<p>Czas na zadania 1-3 z modułu <strong>01-Wstep</strong></p>
+					<p>Rozwiążcie zadania 1-3 z modułu:</p>
+					<a href="https://github.com/misiekofski/CsharpForTesters/tree/main/CsharpForTesters/01-Wstep"><strong>01-Wstep</strong></a>
 				</section>
 
 
@@ -206,7 +209,7 @@
 				<section>
 					<p>Interpolacja ciągów (string interpolation)</p>
 					<p>Możemy wstawiać zmienne do środka stringów:</p>
-					<pre><code data-line-numbers="2,3">public class Movies() {
+					<pre><code data-line-numbers="2-6">public class Movies() {
 	string name = "Michał";
 	string surname = "Dobrzycki";
 	double stanKredytu = -300000.43;
@@ -216,12 +219,69 @@
 				</section>
 
 				<section>
-					<p>Czas na zadania 4-6 z modułu <strong>01-Wstep</strong></p>
+					<p>Na Stringach można pracować jak z tablicami znaków</p>
+					<pre><code data-line-numbers="2-6">public static string Reverse( string s )
+{
+	char[] charArray = s.ToCharArray();
+	Array.Reverse( charArray );
+	return new string( charArray );
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<p>Rozwiążcie zadania 4-6 z modułu:</p>
+					<a href="https://github.com/misiekofski/CsharpForTesters/tree/main/CsharpForTesters/01-Wstep"><strong>01-Wstep</strong></a>
 				</section>
 			
 				<section>
-					<p></p>
-					<p>
+					<p>Instrukcje warunkowe</p>
+					<p>Instrukcja if:</p>
+					<pre><code data-line-numbers="3-6">public class Movies() 
+{
+	public static void Main(string[] args) {
+		if (warunek1) {
+			// jeżeli warunek1 jest TRUE to wykonaj kod
+		} else if (warunek2) {
+			// jeżeli warunek1 jest FALSE oraz warunek2 jest TRUE to wykonaj kod
+		} else {
+			// jeżeli wszystkie warunki powyżej są FALSE to wykonaje ten kod
+		}
+	}
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<p>Instrukcje warunkowe</p>
+					<p>Instrukcja switch (zamiennie do if):</p>
+					<pre><code data-line-numbers="3-6">public class User() 
+{
+	public static void Main(string[] args) {
+		// załóżmy że użytkownik podaje zmienną typu int age z klawiatury
+		switch (age) {
+			case < 0:
+				Console.WriteLine("Nie można mieć mniej niż 0 lat");
+				break;
+			case > 150:
+				Console.WriteLine("Nie można mieć mniej więcej niż 150 lat");
+				break;
+			case 42:
+				Console.WriteLine("Douglas Adams bardzo lubi ten wiek!");
+				break;
+			default:
+				Console.WriteLine($"Masz {age} lat!");
+				break;
+		}
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<p>Interpolacja ciągów (string interpolation)</p>
+					<p>Możemy wstawiać zmienne do środka stringów:</p>
+					<pre><code data-line-numbers="2-6">
+					</code></pre>
 				</section>
 			
 			</section>
