@@ -161,6 +161,11 @@
 			</section>
 
 			<section>
+
+				<section>
+					<h2>Wszystkie zadania będziemy wykonywać na tym <a href="https://github.com/misiekofski/CsharpForTesters">repozytorium</a></h2>
+					<p>Zróbcie forka i klona na swoje maszyny, żeby móc wypychać swoje zmiany na githuba.</p>					
+				</section>
 				<section>
 					<p>Jak definiujemy zmienne w C#?</p>
 					<p>Musimy podać im typ oraz nazwę zmiennej, przypisać wartość i zakończyć średnikiem</p>
@@ -179,6 +184,46 @@
 }
 					</code></pre>
 				</section>
+
+				<section>
+					<p>Czas na zadania 1-3 z modułu <strong>01-Wstep</strong></p>
+				</section>
+
+
+				<section>
+					<p>Stringi w C# są niezmienialnymi (immutable) obiektami</p>
+					<p>Możemy je deklarować na kilka sposobów:</p>
+					<pre><code data-line-numbers="2-6">public class Movies() {
+	string text1; // bez inicjalizacji
+	string text2 = null; // inicjalizacja nullem
+	string text3 = System.String.Empty; // pusty string jest równoznaczny z string text3 = ""
+	string escapePath = "c:\\Users\\Programista";
+	var noEscapePath = @"c:\Users\Programista";
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<p>Interpolacja ciągów (string interpolation)</p>
+					<p>Możemy wstawiać zmienne do środka stringów:</p>
+					<pre><code data-line-numbers="2,3">public class Movies() {
+	string name = "Michał";
+	string surname = "Dobrzycki";
+	double stanKredytu = -300000.43;
+	string doDruku = $"Witaj {name} {surname}, twoje aktualne zadłużenie konta wynosi {stanKredytu}";
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<p>Czas na zadania 4-6 z modułu <strong>01-Wstep</strong></p>
+				</section>
+			
+				<section>
+					<p></p>
+					<p>
+				</section>
+			
 			</section>
 
 
