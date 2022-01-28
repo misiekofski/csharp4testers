@@ -18,44 +18,51 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
-			<section>Wprowadzenie do C# dla testerów automatyzujących
-				Autor: Michał Dobrzycki
+			<section>
+				<h2>Wprowadzenie do C# dla testerów automatyzujących</h2>
+				<p>Autor: Michał Dobrzycki</p>
 			</section>
 
 			<section>
-				<section>Wprowadzenie do Visual Studio</section>
 				<section>
-					<p>Potrzebujemy:</p>
+					<h2>Wprowadzenie do Visual Studio</h2>
+				</section>
+				<section>
+					<p>Potrzebujemy trzech aplikacji do wykonania ćwiczeń:</p>
 					<ul>
-						<li><a href="https://visualstudio.microsoft.com/pl/">Visual Studio</a></li>
-						<li><a href="https://dotnet.microsoft.com/en-us/download/dotnet/3.1">.NET 3.1</a></li>
-						<li><a href="https://docs.specflow.org/projects/getting-started/en/latest/GettingStarted/Step1.html">SpecFlow</a></li>
+						<li><a href="https://visualstudio.microsoft.com/pl/">Visual Studio</a> - IDE w którym będziemy pracować</li>
+						<li><a href="https://dotnet.microsoft.com/en-us/download/dotnet/3.1">.NET 3.1</a> - środowisko uruchomieniowe</li>
+						<li><a href="https://docs.specflow.org/projects/getting-started/en/latest/GettingStarted/Step1.html">SpecFlow</a> - dodatej do Visual Studio wspierający BDD</li>
 					</ul>
 				</section>
 			</section>
 
 			<section>
-				<section>Czym jest nuget?</section>
 				<section>
-					<p>Definiuje sposób tworzenia, hostowania i obsługi pakietów dla platformy .NET</p>
-					<p>Dostarcza też narzędzia do ich obsługi</p>
+					<h2>Czym jest NuGet?</h2>
+				</section>
+				<section>
+					<p>Definiuje sposób <strong>tworzenia</strong>, <strong>hostowania</strong> i <strong>obsługi</strong> pakietów dla platformy .NET</p>
+					<p>Dostarcza też narzędzia do zarządzania nimi</p>
 					<ul>
 						<li><a href="https://www.nuget.org/">Nuget</a></li>
 						<li><a href="https://devblogs.microsoft.com/nuget/">Nuget Blog</a></li>
 					</ul>
 				</section>
 				<section>
-					<p>Manager paczek (coś jak npm albo maven)</p>
+					<p>nuget.exe to manager paczek (coś jak npm albo maven)</p>
 					<ul>
 						<li>Pozwala wrzucić skompilowaną DLL do sieci i udostępnić innym</li>
 						<li>Automatyzuje podpinanie bibliotek pod projekt</li>
-						<li>Dostarcza narzędzia (klienta) do obsługi platformy</li>
+						<li>Dostarcza narzędzia (klienta) do obsługi CI/CD</li>
 					</ul>
 				</section>
 			</section>
 
 			<section>
-				<section>Czym jest .NET?</section>
+				<section>
+					<h2>Czym jest .NET?</h2>
+				</section>
 				<section>
 					<p>Platforma udostępniona przez Microsoft dla developerów, do tworzenia wielu rodzajów aplikacji, takich jak:</p>
 					<ul>
@@ -80,13 +87,17 @@
 			</section>
 
 			<section>
-				<section>Wprowadzenie do C#</section>
+				<section>
+					<h2>Wprowadzenie do C#</h2>
+				</section>
 				<section>
 					<h3>.NET potrafi kompilować język C#</h3>
 					<p>Język C# jest:</p>
 					<ul>
+						<li>Obiektowy</li>
 						<li>Statycznie typowany</li>
 						<li>Silnie typowany</li>
+						<li>Wielowątkowy</li>
 					</ul>
 				</section>
 				<section>
@@ -94,8 +105,10 @@
 					<p>C#</p>
 					<pre>
 							<code data-trim data-noescape>
-							public static void Main(string[] args) {
-								Console.Writeline("Hello world!");
+							public class Program() {
+								public static void Main(string[] args) {
+									Console.Writeline("Hello world!");
+								}
 							}
 							</code>
 						</pre>
@@ -107,7 +120,7 @@
 						</pre>
 				</section>
 				<section>
-					<h3>Porównanie</h3>
+					<h3>Porównanie ze względu na użyteczność w testach automatycznych</h3>
 					<table>
 						<thead>
 							<tr>
@@ -120,11 +133,11 @@
 							<tr>
 								<td>Obiektowy</td>
 								<td>TAK</td>
-								<td>TAK(?)</td>
+								<td>TAK</td>
 							</tr>
 							<tr>
 								<td>Funkcyjny</td>
-								<td>TAK(?)</td>
+								<td>TAK</td>
 								<td>TAK</td>
 							</tr>							
 							<tr>
@@ -143,10 +156,20 @@
 								<td>TAK</td>
 							</tr>
 							<tr>
-								<td>Garbage Collector</td>
+								<td>Wsparcie BDD</td>
 								<td>TAK</td>
-								<td>NIE</td>
-							</tr>							
+								<td>TAK</td>
+							</tr>
+							<tr>
+								<td>Praca z ORM/DB</td>
+								<td>ŁATWA</td>
+								<td>TRUDNA</td>
+							</tr>
+							<tr>
+								<td>Próg wejścia</td>
+								<td>ŚREDNI</td>
+								<td>NISKI</td>
+							</tr>						
 						</tbody>
 					</table>
 					
@@ -163,7 +186,10 @@
 			<section>
 
 				<section>
-					<h2>Wszystkie zadania z C# będziemy wykonywać w jednym projekcie</h2>
+					<h2>01-Wstep</h2>
+				</section>
+				<section>
+					<p>Wszystkie zadania z C# będziemy wykonywać w jednym projekcie</p>
 					<p>Zróbcie forka i klona na swoje maszyny z tego <a href="https://github.com/misiekofski/CsharpForTesters">repozytorium</a>, żeby móc wypychać swoje zmiany na githuba.</p>					
 				</section>
 				<section>
@@ -177,7 +203,7 @@
 					</code></pre>
 				</section>
 				<section>
-					<p>Magiczne słówko <strong>var</strong>, powoduje że C# sam wymyśli jaki to ma być typ.</p>
+					<p>Magiczne słówko <strong>var</strong>, powoduje że C# sam się domyśli jaki to ma być typ.</p>
 					<p>Zapis poniżej jest równoznaczny z poprzednim</p>
 					<pre><code data-line-numbers="3,4">public class Movies() 
 {
@@ -302,23 +328,104 @@ void SendSMS(string email, string message) { /* kod wysyłający email */ };
 			</section>
 
 			<section>
-				<section>Debugowanie</section>
+				<section>
+					<h2>Debugowanie</h2>
+					<p>Debugowanie to krokowe i kontrolowane wykonywanie programu. Visual Studio pozwala nam wykonać program linijka po linijce.</p>
+				</section>
 
 				<section>
-					<p>Debugowanie - instrukcja</p>
+					<h2>Debugowanie - instrukcja</h2>
 					<img src="images/debug/ustaw-breakpoint.png" alt="Ustaw breakpoint">
 				</section>
 
 				<section>
-					<p>Debugowanie warunkowe - instrukcja</p>
-					<img src="images/debug/ustaw-breakpoint-warunkowy.png" alt="Ustaw breakpoint">
+					<h2>Debugowanie warunkowe - instrukcja</h2>
+					<img src="images/debug/ustaw-breakpoint-warunkowy.png" alt="Ustaw breakpoint warunkowy">
 				</section>
 
 				<section>
-					<img src="images/debug/debugowanie-poglad.png" alt="Ustaw breakpoint">
+					<img src="images/debug/debugowanie-poglad.png" alt="Podgląd na debugowanie w Visual Studio">
 				</section>
 			</section>
 
+			<section>
+				<section>
+					<h2>Wyjątki</h2>	
+				</section>
+				<section>
+					<p>Czym są wyjątki?</p>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Struktury danych</h2>	
+				</section>
+				<section>
+					<p>Struktury danych w C#</p>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Obiektowość w C#</h2>	
+				</section>
+				<section>
+					<ul>
+						<li>Abstrakcja</li>
+						<li>Hermetyzacja</li>
+						<li>Polimorfizm</li>
+						<li>Dziedziczenie</li>
+					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Modyfikatory dostępu w C#</h2>	
+				</section>
+				<section>
+					<ul>
+						<li>public</li>
+						<li>internal</li>
+						<li>private</li>
+						<li>protected</li>
+						<li>kombinacje powyższych</li>
+					</ul>
+				</section>
+
+				<section>
+					<table>
+						<thead>
+							<tr>
+								<th>Dostępność</th>
+								<th>public</th>
+								<th>protected</th>
+								<th>internal</th>
+								<th>private</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>W tej samej klasie</td>
+								<td>TAK</td>
+								<td>TAK</td>
+								<td>TAK</td>
+								<td>TAK</td>
+							</tr>
+							<tr>
+								<td>W klasie dziedziczącej</td>
+								<td>TAK</td>
+								<td>TAK</td>
+								<td>TAK</td>
+								<td>NIE</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				
+			</section>
 
 		</div>
 	</div>
