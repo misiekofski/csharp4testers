@@ -583,25 +583,53 @@ numberList.RemoveAt(0); // remove item with index 0
 				<section>
 					<p>Cztery filary programowania obiektowego:</p>
 					<ul>
-						<li>Abstrakcja</li>
-						<li>Hermetyzacja</li>
-						<li>Polimorfizm</li>
-						<li>Dziedziczenie</li>
+						<li>Abstrakcja - chowanie logiki</li>
+						<li>Hermetyzacja - chowamy kod przed niezaplanowanym użyciem</li>
+						<li>Polimorfizm - podszywamy się pod inneg klasy</li>
+						<li>Dziedziczenie - przejmowanie właściwości i funkcjonalności</li>
 					</ul>
-
-					<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop">OOP w C#</a></p>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/">OOP w C#</a></p>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop">Tutorial OOP</a></p>
 				</section>
 
 				<section>
 					<p>Klasy, czyli przepis na tworzenie obiektu</p>
+					<p>Myślimy o rzeczywistości w postaci obiektów (rzeczowników). Obiekty te mają swoje:</p>
+					<ul>
+						<li>właściwości (atrybuty, struktury danych)</li>
+						<li>zachowania (metody, funkcje)</li>
+					</ul>
+					<pre><code data-line-numbers="1-5">public class Car 
+{
+	public double horsePower; // właściwość
+	public static void Main(string[] args) { ... } // metoda
+}
+					</code></pre>
 				</section>
 
 				<section>
 					<p>Konstruktor, czyli ustawianie danych przy tworzeniu obiektu</p>
+					<p>Jeżeli utworzymy klasę to wszystkie właściwości będą miały domyślne wartości.</p>
+					<p>Możemy zmienić to zachowanie konstruktorem który wymusza ustawienie wartości pól podczas tworzenia obiektu.</p>
+					<pre><code data-line-numbers="1-5">public class Car 
+{
+	public double horsePower; // właściwość
+	public Car(double horsePower) 
+	{
+		this.horsePower = horsePower;
+	}
+}
+				</code></pre>					
 				</section>
 
 				<section>
 					<p>Interfejsy, czyli definicja zachowania dla klas</p>
+					<pre><code data-line-numbers="1-5">interface IWebDriver<T>
+{
+	void Quit(); // każdy webdriver musi potrafić zamknąć przeglądarkę
+	IWebElement FindElement(); // i znaleźć element na stronie
+}
+				</code></pre>					
 				</section>
 
 				<section>
@@ -817,7 +845,6 @@ int minimalLength = words
 		Reveal.initialize({
 			hash: true,
 			slideNumber: 'h/v',
-			center: false,
 			progress: true,
 
 			// Learn about plugins: https://revealjs.com/plugins/
