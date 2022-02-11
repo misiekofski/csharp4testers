@@ -533,27 +533,121 @@ catch (DivideByZeroException e)
 				</section>
 
 				<section>
+					<p>Czytanie plików do stringa</p>
+					<p>Dokumentacja klasy <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=netcore-3.1">File</a></p>
+					<p><strong>Ważne:</strong> żeby móc korzystać w trybie build z pliku tekstowego, musimy po jego dodaniu kliknąć na Properties i ustawić "Copy to output directory" na wartość "Copy always". Domyślnie ustawione jest "Do not copy".</p>
+					<pre><code data-line-numbers="1">string wynnik = File.ReadAllText("plik.txt");</code></pre>
+				</section>
+
+				<section>
 					<p>Przypomnienie wzorców:</p>
 					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
+						<li>[a-zA-Z] - litery (bez polskich znaków)</li>
+						<li>[^abc] - nie zawiera litery abc</li>
+						<li>\p{L} - dowolna litera Latin (z polskimi znakami)</li>
+						<li>. - dowolny znak</li>
+						<li>\s+ - spacja jedna lub więcej</li>
+						<li>\S* - nie spacja zero lub więcej</li>
+						<li>\d{1,2} - cyfra jedna lub dwie</li>
+						<li>(Piwo|Cydr|Wino) - Piwo lub Cydr Lub Wino</li>
 					</ul>
 				</section>
+
+				<section>
+					<p>Jak używamy ich w C#</p>
+					<pre><code data-line-numbers="3-11">public static void Main(string[] args) 
+						{
+							// używajmy głównie @"" żeby traktować znak \ jako część regexa
+							string wyszukiwany = "...";
+							Regex re = new Regex(@"wzorzec");
+							// znajdź wszystkie wystąpienia (możemy po nich iterować)
+							MatchCollection result = re.Matches();
+							foreach (Match r in result)
+							{
+								Console.WriteLine(r.Value);
+							}
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<p>Co zrobić żeby traktować każdą linijkę stringa/pliku jako osobny string</p>
+					<pre><code data-line-numbers="3,4">public static void Main(string[] args) 
+						{
+							// znajdź od początku linii wielkie litery
+							Regex re = new Regex(@"^[A-Z]+", RegexOptions.Multiline);
+						}
+					</code></pre>
+				</section>
 			</section>
 
 			<section>
 				<section>
-					<h2>Arrow functions</h2>	
+					<h2>Arrow functions</h2>
 				</section>
 				
+				<section>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator">Lambda operator</a></p>
+					<p>Służy dwóm celom:</p>
+					<ul>
+						<li>Lambda operator</li>
+						<li>Expression body definition</li>
+					</ul>
+				</section>
+
+				<section>
+					<p>Lambdy możemy wrzucać do środka jako funkcje anonimowe</p>
+					<pre><code data-line-numbers="1,4">string[] words = { "bot", "apple", "apricot" };
+int minimalLength = words
+	.Where(w => w.StartsWith("a"))
+	.Min(w => w.Length);
+						</code></pre>
+				</section>
+
+				<section>
+					<p>Expression body definition jest popularne dla krótki funkcji. Np. nadpisanie metody toString obiektu.</p>
+					<pre><code data-line-numbers="1">public override string ToString() => $"{fname} {lname}".Trim();</code></pre>
+				</section>
 			</section>
 
 			<section>
 				<section>
-					<h2>LINQ</h2>	
+					<h2>LINQ</h2>
+					<p>Język zapytań charakterystyczny dla C#. Przypomina trochę SQL. Służby do szukania elementów w kolekcjach, plikach XML i bazach danych.</p>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries">Wstęp do LINQ</a></p>
+				</section>
+
+				<section>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.select?view=netcore-3.1">.Select()</a></p>
 				</section>
 				
+				<section>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.where?view=netcore-3.1">.Where()</a></p>	
+				</section>
+
+				<section>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.groupby?view=netcore-3.1">.GroupBy()</a></p>
+				</section>
+
+				<section>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.orderby?view=netcore-3.1">.OrderBy()</a></p>
+				</section>
+				
+				<section>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.firstordefault?view=netcore-3.1">.FirstOrDefault()</a></p>
+				</section>
+
+				<section>
+					<p>Inne funkcje agregujące:</p>
+					<ul>
+						<li>.Count()</li>
+						<li>.Sum()</li>
+						<li> .Average()</li>
+						<li>.Max()</li>
+						<li>.Min()</li>
+					</ul>
+						
+				</section>
 			</section>
 
 		</div>
