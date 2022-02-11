@@ -533,46 +533,46 @@ numberList.RemoveAt(0); // remove item with index 0
 }					
 					</code></pre>					
 				</section>				
-			</section>
 
-			<section>
-				<p>Słowniki</p>
-				<p>Struktura danych trzymająca pary danych klucz - wartość.</p>
-				<pre><code data-line-numbers="2-6">Dictionary<string, string> openWith = new Dictionary<string, string>();
-openWith.Add("txt", "notepad.exe");
-openWith.Add("bmp", "paint.exe");
-				</code></pre>					
-			</section>
+				<section>
+					<p>Słowniki</p>
+					<p>Struktura danych trzymająca pary danych klucz - wartość.</p>
+					<pre><code data-line-numbers="2-6">Dictionary<string, string> openWith = new Dictionary<string, string>();
+	openWith.Add("txt", "notepad.exe");
+	openWith.Add("bmp", "paint.exe");
+					</code></pre>					
+				</section>
 
-			<section>
-				<p>Czytanie danych ze słowników, używamy try-catch</p>
-				<pre><code data-line-numbers="1-8">try
-{
-	Console.WriteLine("For key = \"tif\", value = {0}.", openWith["tif"]);
-}
-catch (KeyNotFoundException)
-{
-	Console.WriteLine("Key = \"tif\" is not found.");
-}
-				</code></pre>					
-			</section>
+				<section>
+					<p>Czytanie danych ze słowników, używamy try-catch</p>
+					<pre><code data-line-numbers="1-8">try
+	{
+		Console.WriteLine("For key = \"tif\", value = {0}.", openWith["tif"]);
+	}
+	catch (KeyNotFoundException)
+	{
+		Console.WriteLine("Key = \"tif\" is not found.");
+	}
+					</code></pre>					
+				</section>
 
-			<section>
-				<p>Lepsze czytanie danych ze słownika. Uwaga: magiczne słówko <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier">out</a></p>
-				<pre><code data-line-numbers="1-9">string value = "";
-if (openWith.TryGetValue("tif", out value))
-{
-	Console.WriteLine("For key = \"tif\", value = {0}.", value);
-}
-else
-{
-	Console.WriteLine("Key = \"tif\" is not found.");
-}
-				</code></pre>					
-			</section>
+				<section>
+					<p>Lepsze czytanie danych ze słownika. Uwaga: magiczne słówko <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier">out</a></p>
+					<pre><code data-line-numbers="1-9">string value = "";
+	if (openWith.TryGetValue("tif", out value))
+	{
+		Console.WriteLine("For key = \"tif\", value = {0}.", value);
+	}
+	else
+	{
+		Console.WriteLine("Key = \"tif\" is not found.");
+	}
+					</code></pre>					
+				</section>
 
-			<section>
-				<p>Czas na zadania z działu 04-Struktury-danych</p>
+				<section>
+					<p>Czas na zadania z działu 04-Struktury-danych</p>
+				</section>
 			</section>
 		</section>
 
