@@ -26,13 +26,23 @@
 			<section>
 				<section>
 					<h2>Wprowadzenie do Visual Studio</h2>
+					<p>Microsoft wypuścił dwa narzędzia, Visual Studio oraz Visual Studio Code. To są dwa różne narzędzia.</p>
 				</section>
 				<section>
-					<p>Potrzebujemy trzech aplikacji do wykonania ćwiczeń:</p>
+					<p>Potrzebujemy trzech aplikacji do wykonania ćwiczeń z C#:</p>
 					<ul>
 						<li><a href="https://visualstudio.microsoft.com/pl/">Visual Studio</a> - IDE w którym będziemy pracować</li>
 						<li><a href="https://dotnet.microsoft.com/en-us/download/dotnet/3.1">.NET 3.1</a> - środowisko uruchomieniowe</li>
 						<li><a href="https://docs.specflow.org/projects/getting-started/en/latest/GettingStarted/Step1.html">SpecFlow</a> - dodatej do Visual Studio wspierający BDD</li>
+					</ul>
+				</section>
+
+				<section>
+					<p>Gdzie szukać informacji o Visual Studio (IDE)</p>
+					<ul>
+						<li><a href="https://www.youtube.com/watch?v=f8jXO946eDw">Youtube - Welcome to Visual Studio 2022</a></li>
+						<li><a href="https://visualstudio.microsoft.com/pl/services/intellicode/">IntelliCode</a>, czyli wsparcie AI w programowaniu</li>
+						<li><a href="https://www.youtube.com/playlist?list=PLReL099Y5nRdcMhrBc9y1dMhUYBk7hknY">Visual Studio tips & tricks</a></li>
 					</ul>
 				</section>
 			</section>
@@ -50,11 +60,19 @@
 					</ul>
 				</section>
 				<section>
-					<p>nuget.exe to manager paczek (coś jak npm albo maven)</p>
+					<p>nuget.exe to manager paczek (coś jak npm dla JS albo maven dla Javy)</p>
 					<ul>
 						<li>Pozwala wrzucić skompilowaną DLL do sieci i udostępnić innym</li>
 						<li>Automatyzuje podpinanie bibliotek pod projekt</li>
 						<li>Dostarcza narzędzia (klienta) do obsługi CI/CD</li>
+					</ul>
+				</section>
+				<section>
+					<p>Paczka nugetowa, to nic innego jak plik ZIP, który ma w środku skompilowane binarki projektu napisanego w C#.</p>
+					<p>Kilka linków:</p>
+					<ul>
+						<li><a href="https://nuget-tutorial.net/en/tutorial/100001/create-nuget-package">Tworzenie paczek nugetowych</a></li>
+						<li><a href="https://docs.microsoft.com/en-us/nuget/">Oficjalna dokumentacja</a></li>
 					</ul>
 				</section>
 			</section>
@@ -82,6 +100,17 @@
 						<li>Linux</li>
 						<li>Android</li>
 						<li>iOS</li>
+					</ul>
+				</section>
+				<section>
+					<p>Aktualna najnowsza wersja .NET to 6.0</p>
+					<p>My będziemy korzystać na tym kursie z wersji 3.1 (LTS)</p>
+				</section>
+				<section>
+					<p>Czym dla nas jest .NET (praktycznie)</p>
+					<ul>
+						<li>Kompilator języka C# (potrafi też kompilować F#, Visual Basic i kilka innych języków MS)</li>
+						<li>Debugger C# (pozwoli nam wykonać aplikację krokowo</li>
 					</ul>
 				</section>
 			</section>
@@ -439,7 +468,10 @@ catch (DivideByZeroException e)
 					<p>Możemy tworzyć własne wyjątki lub rzucać gotowymi. Np. Selenium tworzy kilkanaście specyficznych dla siebie wyjątków.</p>
 					<pre><code data-line-numbers="1">throw new Exception("Treść wyjątku");
 					</code></pre>						
-				</section>				
+				</section>
+				<section>
+					<p>Czas na zadania z działu 03-Wyjątki</p>
+				</section>
 			</section>
 
 			<section>
@@ -455,19 +487,125 @@ catch (DivideByZeroException e)
 						<li>Słowniki</li>
 					</ul>
 				</section>
+
+				<section>
+					<p>Tablice</p>
+					<p>Dodajemy [] na końcu typu zmiennej żeby zdefiniować tablicę. Musimy również podać jej długość. Raz zdefiniowanej długości nie możemy już zmienić.</p>
+					<pre><code data-line-numbers="2-6">{
+int[] myIntArray = new int[5] { 1, 2, 3, 4, 5 };
+						</code></pre>					
+				</section>
+
+				<section>
+					<p>Enum - typ wyliczeniowy</p>
+					<p>Tworzymy go poza klasą po to, żeby ograniczyć liczbę możliwych wartości</p>
+					<pre><code data-line-numbers="2-8">{
+public enum Season
+{
+	Spring,
+	Summer,
+	Autumn,
+	Winter
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<p>Listy</p>
+					<p>Struktury przypominające tablice, ale tablice na sterydach (możemy zmieniać jej długość). Przechowują kolekcję konkretnych typów.</p>
+					<pre><code data-line-numbers="2-6">{
+List<int> numberList = new List<int>();
+numberList.Add(54);
+numberList.Add(45);
+numberList.Remove(45); // remove an item
+numberList.RemoveAt(0); // remove item with index 0
+}						
+					</code></pre>					
+				</section>
+
+				<section>
+					<p>Szybkie definiowanie list z danymi</p>
+					<pre><code data-line-numbers="2-6">List<string> names = new List<string>()
+{
+	"Jan",
+	"Bogna",
+	"Zofia"
+}					
+					</code></pre>					
+				</section>				
 			</section>
+
+			<section>
+				<p>Słowniki</p>
+				<p>Struktura danych trzymająca pary danych klucz - wartość.</p>
+				<pre><code data-line-numbers="2-6">Dictionary<string, string> openWith = new Dictionary<string, string>();
+openWith.Add("txt", "notepad.exe");
+openWith.Add("bmp", "paint.exe");
+				</code></pre>					
+			</section>
+
+			<section>
+				<p>Czytanie danych ze słowników, używamy try-catch</p>
+				<pre><code data-line-numbers="1-8">try
+{
+	Console.WriteLine("For key = \"tif\", value = {0}.", openWith["tif"]);
+}
+catch (KeyNotFoundException)
+{
+	Console.WriteLine("Key = \"tif\" is not found.");
+}
+				</code></pre>					
+			</section>
+
+			<section>
+				<p>Lepsze czytanie danych ze słownika. Uwaga: magiczne słówko <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier">out</a></p>
+				<pre><code data-line-numbers="1-9">string value = "";
+if (openWith.TryGetValue("tif", out value))
+{
+	Console.WriteLine("For key = \"tif\", value = {0}.", value);
+}
+else
+{
+	Console.WriteLine("Key = \"tif\" is not found.");
+}
+				</code></pre>					
+			</section>
+
+			<section>
+				<p>Czas na zadania z działu 04-Struktury-danych</p>
+			</section>
+		</section>
 
 			<section>
 				<section>
 					<h2>Obiektowość w C#</h2>	
 				</section>
 				<section>
+					<p>Cztery filary programowania obiektowego:</p>
 					<ul>
 						<li>Abstrakcja</li>
 						<li>Hermetyzacja</li>
 						<li>Polimorfizm</li>
 						<li>Dziedziczenie</li>
 					</ul>
+
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop">OOP w C#</a></p>
+				</section>
+
+				<section>
+					<p>Klasy, czyli przepis na tworzenie obiektu</p>
+				</section>
+
+				<section>
+					<p>Konstruktor, czyli ustawianie danych przy tworzeniu obiektu</p>
+				</section>
+
+				<section>
+					<p>Interfejsy, czyli definicja zachowania dla klas</p>
+				</section>
+
+				<section>
+					<p>Czas na zadania z działu 05-Obiekty</p>
 				</section>
 			</section>
 
@@ -515,7 +653,9 @@ catch (DivideByZeroException e)
 					</table>
 				</section>
 
-				
+				<section>
+					<p>Czas na zadania z działu 05-Modyfikatory</p>
+				</section>
 			</section>
 
 			<section>
@@ -579,6 +719,10 @@ catch (DivideByZeroException e)
 						}
 					</code></pre>
 				</section>
+
+				<section>
+					<p>Czas na zadania z działu 07-RegEx</p>
+				</section>
 			</section>
 
 			<section>
@@ -607,6 +751,10 @@ int minimalLength = words
 				<section>
 					<p>Expression body definition jest popularne dla krótki funkcji. Np. nadpisanie metody toString obiektu.</p>
 					<pre><code data-line-numbers="1">public override string ToString() => $"{fname} {lname}".Trim();</code></pre>
+				</section>
+
+				<section>
+					<p>Czas na zadania z działu 08-ArrowFunctions</p>
 				</section>
 			</section>
 
@@ -648,6 +796,11 @@ int minimalLength = words
 					</ul>
 						
 				</section>
+				
+				<section>
+					<p>Czas na zadania z działu 09-Linq</p>
+				</section>
+
 			</section>
 
 		</div>
