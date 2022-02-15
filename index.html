@@ -514,33 +514,30 @@ public enum Season
 					<p>Listy</p>
 					<p>Struktury przypominające tablice, ale tablice na sterydach (możemy zmieniać jej długość). Przechowują kolekcję konkretnych typów.</p>
 					<pre><code data-line-numbers="2-6">{
-List<int> numberList = new List<int>();
+List&lt;int&gt; numberList = new List&lt;int&gt;();
 numberList.Add(54);
 numberList.Add(45);
 numberList.Remove(45); // remove an item
 numberList.RemoveAt(0); // remove item with index 0
-}						
-					</code></pre>					
+}</code></pre>					
 				</section>
 
 				<section>
 					<p>Szybkie definiowanie list z danymi</p>
-					<pre><code data-line-numbers="2-6">List<string> names = new List<string>()
+					<pre><code data-line-numbers="1-6">List&lt;string&gt; names = new List&lt;string&gt;()
 {
 	"Jan",
 	"Bogna",
 	"Zofia"
-}					
-					</code></pre>					
+}					</code></pre>
 				</section>				
 
 				<section>
 					<p>Słowniki</p>
 					<p>Struktura danych trzymająca pary danych klucz - wartość.</p>
-					<pre><code data-line-numbers="2-6">Dictionary<string, string> openWith = new Dictionary<string, string>();
+					<pre><code data-line-numbers="1-3">Dictionary&lt;string, string&gt; openWith = new Dictionary&lt;string, string&gt;();
 	openWith.Add("txt", "notepad.exe");
-	openWith.Add("bmp", "paint.exe");
-					</code></pre>					
+	openWith.Add("bmp", "paint.exe");</code></pre>
 				</section>
 
 				<section>
@@ -559,15 +556,14 @@ numberList.RemoveAt(0); // remove item with index 0
 				<section>
 					<p>Lepsze czytanie danych ze słownika. Uwaga: magiczne słówko <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier">out</a></p>
 					<pre><code data-line-numbers="1-9">string value = "";
-	if (openWith.TryGetValue("tif", out value))
-	{
-		Console.WriteLine("For key = \"tif\", value = {0}.", value);
-	}
-	else
-	{
-		Console.WriteLine("Key = \"tif\" is not found.");
-	}
-					</code></pre>					
+if (openWith.TryGetValue("tif", out value))
+{
+	Console.WriteLine("For key = \"tif\", value = {0}.", value);
+}
+else
+{
+	Console.WriteLine("Key = \"tif\" is not found.");
+}					</code></pre>					
 				</section>
 
 				<section>
@@ -611,25 +607,23 @@ numberList.RemoveAt(0); // remove item with index 0
 					<p>Konstruktor, czyli ustawianie danych przy tworzeniu obiektu</p>
 					<p>Jeżeli utworzymy klasę to wszystkie właściwości będą miały domyślne wartości.</p>
 					<p>Możemy zmienić to zachowanie konstruktorem który wymusza ustawienie wartości pól podczas tworzenia obiektu.</p>
-					<pre><code data-line-numbers="1-5">public class Car 
+					<pre><code data-line-numbers="4-7">public class Car 
 {
 	public double horsePower; // właściwość
 	public Car(double horsePower) 
 	{
 		this.horsePower = horsePower;
 	}
-}
-				</code></pre>					
+}					</code></pre>
 				</section>
 
 				<section>
 					<p>Interfejsy, czyli definicja zachowania dla klas</p>
-					<pre><code data-line-numbers="1-5">interface IWebDriver<T>
+					<pre><code data-line-numbers="1-5">interface IWebDriver&lt;T&gt;
 {
 	void Quit(); // każdy webdriver musi potrafić zamknąć przeglądarkę
 	IWebElement FindElement(); // i znaleźć element na stronie
-}
-				</code></pre>					
+}					</code></pre>
 				</section>
 
 				<section>
@@ -647,38 +641,9 @@ numberList.RemoveAt(0); // remove item with index 0
 						<li>internal</li>
 						<li>private</li>
 						<li>protected</li>
-						<li>kombinacje powyższych</li>
 					</ul>
-				</section>
 
-				<section>
-					<table>
-						<thead>
-							<tr>
-								<th>Dostępność</th>
-								<th>public</th>
-								<th>protected</th>
-								<th>internal</th>
-								<th>private</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>W tej samej klasie</td>
-								<td>TAK</td>
-								<td>TAK</td>
-								<td>TAK</td>
-								<td>TAK</td>
-							</tr>
-							<tr>
-								<td>W klasie dziedziczącej</td>
-								<td>TAK</td>
-								<td>TAK</td>
-								<td>TAK</td>
-								<td>NIE</td>
-							</tr>
-						</tbody>
-					</table>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers">Tabelka</a></p>
 				</section>
 
 				<section>
@@ -724,27 +689,26 @@ numberList.RemoveAt(0); // remove item with index 0
 				<section>
 					<p>Jak używamy ich w C#</p>
 					<pre><code data-line-numbers="3-11">public static void Main(string[] args) 
-						{
-							// używajmy głównie @"" żeby traktować znak \ jako część regexa
-							string wyszukiwany = "...";
-							Regex re = new Regex(@"wzorzec");
-							// znajdź wszystkie wystąpienia (możemy po nich iterować)
-							MatchCollection result = re.Matches();
-							foreach (Match r in result)
-							{
-								Console.WriteLine(r.Value);
-							}
-						}
-					</code></pre>
+{
+	// używajmy głównie @"" żeby traktować znak \ jako część regexa
+	string wyszukiwany = "...";
+	Regex re = new Regex(@"wzorzec");
+	// znajdź wszystkie wystąpienia (możemy po nich iterować)
+	MatchCollection result = re.Matches();
+	foreach (Match r in result)
+	{
+		Console.WriteLine(r.Value);
+	}
+}					</code></pre>
 				</section>
 
 				<section>
 					<p>Co zrobić żeby traktować każdą linijkę stringa/pliku jako osobny string</p>
 					<pre><code data-line-numbers="3,4">public static void Main(string[] args) 
-						{
-							// znajdź od początku linii wielkie litery
-							Regex re = new Regex(@"^[A-Z]+", RegexOptions.Multiline);
-						}
+{
+	// znajdź od początku linii wielkie litery
+	Regex re = new Regex(@"^[A-Z]+", RegexOptions.Multiline);
+}
 					</code></pre>
 				</section>
 
@@ -769,7 +733,7 @@ numberList.RemoveAt(0); // remove item with index 0
 
 				<section>
 					<p>Lambdy możemy wrzucać do środka jako funkcje anonimowe</p>
-					<pre><code data-line-numbers="1,4">string[] words = { "bot", "apple", "apricot" };
+					<pre><code data-line-numbers="1-4">string[] words = { "bot", "apple", "apricot" };
 int minimalLength = words
 	.Where(w => w.StartsWith("a"))
 	.Min(w => w.Length);
@@ -777,7 +741,8 @@ int minimalLength = words
 				</section>
 
 				<section>
-					<p>Expression body definition jest popularne dla krótki funkcji. Np. nadpisanie metody toString obiektu.</p>
+					<p>Expression body definition jest popularne dla krótkich funkcji.</p>
+					<p>Na przykład nadpisanie metody toString obiektu.</p>
 					<pre><code data-line-numbers="1">public override string ToString() => $"{fname} {lname}".Trim();</code></pre>
 				</section>
 
