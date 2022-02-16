@@ -491,16 +491,14 @@ catch (DivideByZeroException e)
 				<section>
 					<p>Tablice</p>
 					<p>Dodajemy [] na końcu typu zmiennej żeby zdefiniować tablicę. Musimy również podać jej długość. Raz zdefiniowanej długości nie możemy już zmienić.</p>
-					<pre><code data-line-numbers="2-6">{
-int[] myIntArray = new int[5] { 1, 2, 3, 4, 5 };
+					<pre><code data-line-numbers="2-6">int[] myIntArray = new int[5] { 1, 2, 3, 4, 5 };
 						</code></pre>					
 				</section>
 
 				<section>
 					<p>Enum - typ wyliczeniowy</p>
 					<p>Tworzymy go poza klasą po to, żeby ograniczyć liczbę możliwych wartości</p>
-					<pre><code data-line-numbers="2-8">{
-public enum Season
+					<pre><code data-line-numbers="2-8">public enum Season
 {
 	Spring,
 	Summer,
@@ -581,7 +579,7 @@ else
 					<ul>
 						<li>Abstrakcja - chowanie logiki</li>
 						<li>Hermetyzacja - chowamy kod przed niezaplanowanym użyciem</li>
-						<li>Polimorfizm - podszywamy się pod inneg klasy</li>
+						<li>Polimorfizm - podszywamy się pod inne klasy</li>
 						<li>Dziedziczenie - przejmowanie właściwości i funkcjonalności</li>
 					</ul>
 					<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/">OOP w C#</a></p>
@@ -627,11 +625,6 @@ else
 				</section>
 
 				<section>
-					<p>Properties</p>
-					<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties">Dokumentacja</a></p>
-				</section>
-
-				<section>
 					<p>Czas na zadania z działu 05-Obiekty</p>
 				</section>
 			</section>
@@ -649,6 +642,11 @@ else
 					</ul>
 
 					<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers">Tabelka</a></p>
+				</section>
+
+				<section>
+					<p>Properties</p>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties">Dokumentacja</a></p>
 				</section>
 
 				<section>
@@ -729,10 +727,11 @@ else
 				
 				<section>
 					<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-operator">Lambda operator</a></p>
-					<p>Służy dwóm celom:</p>
+					<p>Służy trzem celom:</p>
 					<ul>
 						<li>Lambda operator</li>
 						<li>Expression body definition</li>
+						<li>Do korzystania z Linq</li>
 					</ul>
 				</section>
 
@@ -764,31 +763,49 @@ int minimalLength = words
 				</section>
 
 				<section>
+					<p>Wybór i obróbka elementów</p>
 					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.select?view=netcore-3.1">.Select()</a></p>
+					<pre><code>var powers = numbers.Select(x => x * x);</code></pre>
+					<p>lub statycznie definiując</p>
+					<pre><code>IEnumerable<int> powers = numbers.Select(x => x * x);</code></pre> 
 				</section>
 				
 				<section>
-					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.where?view=netcore-3.1">.Where()</a></p>	
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.where?view=netcore-3.1">.Where()</a></p>
+					<pre><code>var dobrePiwa = beers.Where(p => p.Contains("pełne"));</code></pre>
+					<p>Jeżeli potrzebujemy Listę, to możemy użyć:</p>
+					<pre><code>var greaterThan50 = numbers.Where(e => e>50).ToList();</code></pre>
 				</section>
 
 				<section>
 					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.groupby?view=netcore-3.1">.GroupBy()</a></p>
+					<p>Zakładając że mamy Listę obiektów: </p>
+					<pre><code>new Customer(){ Name="Bartosz Walaszek", OrdersQuantity=40, TotalPurchasesAmount=8345.66, Bank="MIL"},</code></pre>
+					<p>Możemy grupować elementy tej listy po wybranych polach (properties)</p>
+					<pre><code>var banks = customers.GroupBy(b => b.Bank);</code></pre>
+					<p>To zwraca nam coś "jakby" słownik gdzie kluczem będzie nazwa banku.</p>
 				</section>
 
 				<section>
 					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.orderby?view=netcore-3.1">.OrderBy()</a></p>
+					<p>Możemy posortować obiekty według konkretnych pól</p>
+					<pre><code>var banks = customers.OrderBy(b => b.OrdersQuantity);</code></pre>
 				</section>
 				
 				<section>
 					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.firstordefault?view=netcore-3.1">.FirstOrDefault()</a></p>
+					<p>Pobierz pierwszy lub wartość domyślną (w przeciwieństwie do First() jest bardziej bezpieczne)</p>
+					<pre><code>List<int> months = new List<int> { };
+int firstMonth1 = months.FirstOrDefault(); // zwraca 0 mimo pustej tablicy						
+					</code></pre>
 				</section>
 
 				<section>
-					<p>Inne funkcje agregujące:</p>
+					<p>Inne funkcje agregujące (do znalezienia w dokumentacji):</p>
 					<ul>
 						<li>.Count()</li>
 						<li>.Sum()</li>
-						<li> .Average()</li>
+						<li>.Average()</li>
 						<li>.Max()</li>
 						<li>.Min()</li>
 					</ul>
