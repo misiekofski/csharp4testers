@@ -697,7 +697,7 @@ else
 	string wyszukiwany = "...";
 	Regex re = new Regex(@"wzorzec");
 	// znajdź wszystkie wystąpienia (możemy po nich iterować)
-	MatchCollection result = re.Matches();
+	MatchCollection result = re.Matches(wyszukiwany);
 	foreach (Match r in result)
 	{
 		Console.WriteLine(r.Value);
