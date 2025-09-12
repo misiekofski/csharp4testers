@@ -281,7 +281,7 @@
 {
 	string s = "Kobyla ma maly bok";
 	char[] charArray = s.ToCharArray();
-	// możemy używać wbudowanych funkcji tablic https://docs.microsoft.com/pl-pl/dotnet/api/system.array?view=netcore-3.1
+	// możemy używać wbudowanych funkcji tablic https://docs.microsoft.com/pl-pl/dotnet/api/system.array?view=net-8.0
 	string reversed = new string( charArray );
 }
 					</code></pre>
@@ -671,7 +671,7 @@ else
 
 				<section>
 					<p>Czytanie plików do stringa</p>
-					<p>Dokumentacja klasy <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=netcore-3.1">File</a></p>
+					<p>Dokumentacja klasy <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=net-8.0">File</a></p>
 					<p><strong>Ważne:</strong> żeby móc korzystać w trybie build z pliku tekstowego, musimy po jego dodaniu kliknąć na Properties i ustawić "Copy to output directory" na wartość "Copy always". Domyślnie ustawione jest "Do not copy".</p>
 					<pre><code data-line-numbers="1">string wynnik = File.ReadAllText("plik.txt");</code></pre>
 				</section>
@@ -765,21 +765,21 @@ int minimalLength = words
 
 				<section>
 					<p>Wybór i obróbka elementów</p>
-					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.select?view=netcore-3.1">.Select()</a></p>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.select?view=net-8.0">.Select()</a></p>
 					<pre><code>var powers = numbers.Select(x => x * x);</code></pre>
 					<p>lub statycznie definiując</p>
 					<pre><code>IEnumerable<int> powers = numbers.Select(x => x * x);</code></pre> 
 				</section>
 				
 				<section>
-					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.where?view=netcore-3.1">.Where()</a></p>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.where?view=net-8.0">.Where()</a></p>
 					<pre><code>var dobrePiwa = beers.Where(p => p.Contains("pełne"));</code></pre>
 					<p>Jeżeli potrzebujemy Listę, to możemy użyć:</p>
 					<pre><code>var greaterThan50 = numbers.Where(e => e>50).ToList();</code></pre>
 				</section>
 
 				<section>
-					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.groupby?view=netcore-3.1">.GroupBy()</a></p>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.groupby?view=net-8.0">.GroupBy()</a></p>
 					<p>Zakładając że mamy Listę obiektów: </p>
 					<pre><code>new Customer(){ Name="Bartosz Walaszek", OrdersQuantity=40, TotalPurchasesAmount=8345.66, Bank="MIL"},</code></pre>
 					<p>Możemy grupować elementy tej listy po wybranych polach (properties)</p>
@@ -788,13 +788,13 @@ int minimalLength = words
 				</section>
 
 				<section>
-					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.orderby?view=netcore-3.1">.OrderBy()</a></p>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.orderby?view=net-8.0">.OrderBy()</a></p>
 					<p>Możemy posortować obiekty według konkretnych pól</p>
 					<pre><code>var banks = customers.OrderBy(b => b.OrdersQuantity);</code></pre>
 				</section>
 				
 				<section>
-					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.firstordefault?view=netcore-3.1">.FirstOrDefault()</a></p>
+					<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.queryable.firstordefault?view=net-8.0">.FirstOrDefault()</a></p>
 					<p>Pobierz pierwszy lub wartość domyślną (w przeciwieństwie do First() jest bardziej bezpieczne)</p>
 					<pre><code>List&lt;int&gt; months = new List&lt;int&gt; { };
 int firstMonth = months.FirstOrDefault(); // zwraca 0 mimo pustej tablicy						
